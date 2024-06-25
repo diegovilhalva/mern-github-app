@@ -5,6 +5,8 @@ import LoginPage from "./pages/LoginPage"
 import ExplorePage from "./pages/ExplorePage"
 import LikesPage from "./pages/LikesPage"
 import Sidebar from "./components/Sidebar"
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -12,8 +14,9 @@ function App() {
 
 
   return (
-    <div className="flex text-white">
+    <div className="flex">
       <Sidebar />
+      <ToastContainer/>
       <div className="max-w-5xl my-5 text-white mx-auto transition-all duration-300 flex-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
