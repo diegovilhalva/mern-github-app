@@ -9,7 +9,7 @@ const Repos = ({repos}) => {
 			 	{repos.map(repo => (
 					<Repo key={repo.id} repo={repo}/>
 				))}
-				{repos.length === 0 && <p className="flex items-center justify-center h-3">No repos found.</p>}
+				{repos.length === 0 && <p className="flex items-center justify-center h-32">No repos found.</p>}
 			</ol>
 		</div>
 	);
