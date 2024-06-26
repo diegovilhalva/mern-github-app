@@ -15,13 +15,11 @@ const HomePage = () => {
   const getUserProfileAndRepos = useCallback(async (username = "diegovilhalva") => {
     setLoading(true)
     try {
-      const userRes = await fetch(`https://api.github.com/users/${username}`)
-      const userProfile = await userRes.json()
-      setUserProfile(userProfile)
-      const reposRes = await fetch(userProfile.repos_url)
-      const repos = await reposRes.json()
+      const res = await fetch(`http://localhost:5000/api/users/profile/${username}`)
+      const {repos,userProfile} = await res.json()
+      
       repos.sort((a,b) => new Date(b.created_at) - new Date(a.created_at))  
-  
+      setUserProfile(userProfile)
       setRepos(repos)
       return { userProfile, repos }
 
@@ -44,6 +42,7 @@ const HomePage = () => {
     setUserProfile(userProfile)
     setRepos(repos)
     setLoading(false)
+    setSortType('recent')
   }
 
   const onSort = (sortType) => {
