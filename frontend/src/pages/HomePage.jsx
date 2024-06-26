@@ -15,17 +15,18 @@ const HomePage = () => {
   const getUserProfileAndRepos = useCallback(async (username = "diegovilhalva") => {
     setLoading(true)
     try {
-      const res = await fetch(`https://api.github.com/users/${username}`)
+      const userRes = await fetch(`https://api.github.com/users/${username}`)
       const userProfile = await userRes.json()
       setUserProfile(userProfile)
       const reposRes = await fetch(userProfile.repos_url)
       const repos = await reposRes.json()
+      repos.sort((a,b) => new Date(b.created_at) - new Date(a.created_at))  
   
       setRepos(repos)
       return { userProfile, repos }
 
     } catch (error) {
-      toast.error(error.message)
+      toast.error(error.message,{position:"top-center"})
     } finally {
       setLoading(false)
     }
