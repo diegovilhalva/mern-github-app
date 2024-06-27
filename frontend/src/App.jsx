@@ -7,12 +7,14 @@ import LikesPage from "./pages/LikesPage"
 import Sidebar from "./components/Sidebar"
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+import { useAuthContext } from "./context/AuthContext"
 
 
 
 function App() {
 
-
+const {authUser} = useAuthContext()
+console.log('Authenticated user',authUser)
   return (
     <div className="flex">
       <Sidebar />

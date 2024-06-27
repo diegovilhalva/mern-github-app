@@ -17,5 +17,8 @@ export const PROGRAMMING_LANGUAGES = {
     Hack:'/hack.svg',
 	Dart:'/dart.svg',
 	C:'/c.svg',
-	Shell:'/shell.svg'
+	Shell:'/shell.svg',
+	'C#':'/c_sharp.svg',
+	Rust:'/rust.svg',
+	Ruby:'/ruby.svg'
 };
