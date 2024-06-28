@@ -1,8 +1,10 @@
 import express from "express"
-import { getUser } from "../controllers/user.controller.js"
+import { getLikes, getUser, likeProfile } from "../controllers/user.controller.js"
+import { ensureAuthenticated } from "../middleware/ensureAuthenticated.js"
 
 const router = express.Router()
 router.get('/profile/:username',getUser)
-
+router.get('/likes',ensureAuthenticated,getLikes)
+router.post('/like/:username',ensureAuthenticated,likeProfile)
 
 export default router

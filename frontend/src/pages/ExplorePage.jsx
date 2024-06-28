@@ -12,16 +12,18 @@ const ExplorePage = () => {
 		setLoading(true)
 		setLoading([])
 		try {
-			const res = await fetch(`http://localhost:5000/api/explore/repos/${language}`)
+			const res = await fetch(`/api/explore/repos/${language}`)
 			const {repos} = await res.json()
 			setRepos(repos)
 			setSelectedLaguage(language)
 		} catch (error) {
 			toast.error(error.message,{position:"top-center"})
+		
 		}finally{
 			setLoading(false)
 		}
 	} 
+	console.log(repos)
 	return (
 		<div className='px-4'>
 			<div className='bg-glass max-w-2xl mx-auto rounded-md p-4'>
